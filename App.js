@@ -25,7 +25,10 @@ const Item = ({ title, onPress }) => (
 function HomeScreen() {
 
   const renderItem = ({ item }) => (
-    <TouchableOpacity style={styles.button} >
+    <TouchableOpacity
+      style={styles.button}
+      onPress={() => { console.log('hello world'); }}
+      >
       <Text>{item.title}</Text>
     </TouchableOpacity>
   );
