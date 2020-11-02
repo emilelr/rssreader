@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {View, Text, Button} from 'react-native';
+import {View, Text, Button, FlatList, TouchableOpacity} from 'react-native';
 import {connect} from 'react-redux';
 import * as rssParser from 'react-native-rss-parser';
 
@@ -12,6 +12,27 @@ class EntriesScreen extends React.Component {
       items: [],
     };
   }
+
+  renderItem = (item) => {
+    return (
+      <TouchableOpacity
+        style={{
+          alignItems: "center",
+          backgroundColor: "#DDDDDD",
+          padding: 10
+        }}
+        onPress={() => {
+          console.log('retrieving');
+          //retrieve(item.rss);
+          //this.props.navigation.navigate('Entries', {
+          //    rss: item.rss,
+          //  })
+        }}
+        >
+        <Text>{item.title}</Text>
+      </TouchableOpacity>
+    );
+  };
 
   componentDidMount() {
     const params = this.props.route.params;
@@ -36,11 +57,21 @@ class EntriesScreen extends React.Component {
     const params = this.props.route.params;
     return (
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-        <Text>Entries Screen: {this.props.entries.entries.length}</Text>
+        {/*<Text>Entries Screen: {this.props.entries.entries.length}</Text>
+        */}
+        {/*
         <Button
           title={`Go to Details: ${params.rss}`}
           onPress={() => navigation.navigate('Entries')}
+        />*/}
+
+        <FlatList
+          data={this.state.items}
+          renderItem={({item}) => this.renderItem(item)}
+          keyExtractor={item => item.id}
         />
+
+
       </View>
     );
   }
