@@ -1,21 +1,21 @@
 import * as React from 'react';
-import { View, Text, FlatList, StyleSheet, TouchableOpacity, StatusBar } from 'react-native';
+import {View, Text, FlatList, StyleSheet, TouchableOpacity} from 'react-native';
 
 const DATA = [
   {
     id: '1',
     title: 'Nasa',
-    rss: 'http://www.nasa.gov/rss/dyn/breaking_news.rss'
+    rss: 'http://www.nasa.gov/rss/dyn/breaking_news.rss',
   },
   {
     id: '2',
     title: 'Wired',
-    rss: 'https://www.wired.com/feed/rss'
+    rss: 'https://www.wired.com/feed/rss',
   },
   {
     id: '3',
     title: 'BBC',
-    rss: 'http://feeds.bbci.co.uk/news/rss.xml'
+    rss: 'http://feeds.bbci.co.uk/news/rss.xml',
   },
 ];
 
@@ -31,7 +31,7 @@ class HomeScreen extends React.Component {
           })
       }}
       >
-      <Text>{item.title}</Text>
+      <Text style={{ fontSize: 30 }}>{item.title}</Text>
     </TouchableOpacity>)
   };
 
