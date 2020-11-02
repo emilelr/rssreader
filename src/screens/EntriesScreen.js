@@ -7,17 +7,19 @@ class EntriesScreen extends React.Component {
     super(props);
 
     this.state = {
-      title: '',
       items: [],
     };
   }
 
   renderItem = (item) => {
     return (
-      <TouchableOpacity style={{ marginTop: 16, marginBottom: 16}}
-
+      <TouchableOpacity style={{ marginTop: 16, marginBottom: 16 }}
         onPress={() => {
-          console.log('retrieving');
+          console.log('item', item);
+          const link = item.links[0].url;
+          this.props.navigation.navigate('Webview', {
+            link,
+          })
           //retrieve(item.rss);
           //this.props.navigation.navigate('Entries', {
           //    rss: item.rss,
