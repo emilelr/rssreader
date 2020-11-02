@@ -1,6 +1,5 @@
 import * as React from 'react';
 import {View, Text, Button, FlatList, TouchableOpacity} from 'react-native';
-import {connect} from 'react-redux';
 import * as rssParser from 'react-native-rss-parser';
 
 class EntriesScreen extends React.Component {
@@ -77,9 +76,4 @@ class EntriesScreen extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => (
-{
-  entries: state.entries,
-});
-
-export default connect(mapStateToProps)(EntriesScreen);
+export default EntriesScreen;
