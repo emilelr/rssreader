@@ -4,7 +4,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import * as rssParser from 'react-native-rss-parser';
 import HomeScreen from './src/screens/HomeScreen';
 import EntriesScreen from './src/screens/EntriesScreen';
 import entriesReducer from './src/redux/EntriesReducer';
