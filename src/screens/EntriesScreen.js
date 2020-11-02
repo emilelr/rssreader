@@ -14,12 +14,8 @@ class EntriesScreen extends React.Component {
 
   renderItem = (item) => {
     return (
-      <TouchableOpacity
-        style={{
-          alignItems: "center",
-          backgroundColor: "#DDDDDD",
-          padding: 10
-        }}
+      <TouchableOpacity style={{ marginTop: 16, marginBottom: 16}}
+
         onPress={() => {
           console.log('retrieving');
           //retrieve(item.rss);
@@ -28,7 +24,9 @@ class EntriesScreen extends React.Component {
           //  })
         }}
         >
-        <Text>{item.title}</Text>
+        <Text style={{ fontSize: 20 }}>{item.title}</Text>
+        <Text style={{ fontSize: 14 }}>{item.description}</Text>
+        <Text style={{ fontSize: 20 }}>{item.published}</Text>
       </TouchableOpacity>
     );
   };
@@ -56,14 +54,6 @@ class EntriesScreen extends React.Component {
     const params = this.props.route.params;
     return (
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-        {/*<Text>Entries Screen: {this.props.entries.entries.length}</Text>
-        */}
-        {/*
-        <Button
-          title={`Go to Details: ${params.rss}`}
-          onPress={() => navigation.navigate('Entries')}
-        />*/}
-
         <FlatList
           data={this.state.items}
           renderItem={({item}) => this.renderItem(item)}
