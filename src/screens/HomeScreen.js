@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {View, Text, FlatList, StyleSheet, TouchableOpacity} from 'react-native';
 
+//our default hardcoded homescreen data
 const DATA = [
   {
     id: '1',
@@ -36,6 +37,7 @@ class HomeScreen extends React.Component {
   };
 
   render() {
+    //we use flatlist as it is the most efficient when displaying items of the same format
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <FlatList

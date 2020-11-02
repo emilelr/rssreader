@@ -1,5 +1,4 @@
 import * as React from 'react';
-import {View, Text, Button, FlatList, TouchableOpacity} from 'react-native';
 import { WebView } from 'react-native-webview';
 
 class WebviewScreen extends React.Component {
