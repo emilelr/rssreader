@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
+import EntriesScreen from './src/screens/EntriesScreen';
 import entriesReducer from './src/redux/EntriesReducer';
 
 const store = createStore(entriesReducer);
@@ -27,6 +28,7 @@ const Item = ({ title, onPress }) => (
 );
 */
 
+/*
 function EntriesScreen({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
@@ -38,6 +40,7 @@ function EntriesScreen({ navigation }) {
     </View>
   );
 }
+*/
 
 function HomeScreen({ navigation }) {
 
