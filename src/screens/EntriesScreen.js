@@ -48,7 +48,7 @@ class EntriesScreen extends React.Component {
         this.setState({
           items: rss.items,
         })
-      });
+    });
   }
 
   render() {

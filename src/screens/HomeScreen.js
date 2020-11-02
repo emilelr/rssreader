@@ -3,31 +3,21 @@ import { View, Text, FlatList, StyleSheet, TouchableOpacity, StatusBar } from 'r
 
 const DATA = [
   {
-    id: '34cf4554-c1b1-46c2-aed5-3ad53abb28ba',
+    id: '1',
     title: 'Nasa',
     rss: 'http://www.nasa.gov/rss/dyn/breaking_news.rss'
   },
   {
-    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+    id: '2',
     title: 'Wired',
     rss: 'https://www.wired.com/feed/rss'
-  }
+  },
+  {
+    id: '3',
+    title: 'BBC',
+    rss: 'http://feeds.bbci.co.uk/news/rss.xml'
+  },
 ];
-
-function retrieve(link) {
-  return fetch('http://www.nasa.gov/rss/dyn/breaking_news.rss')
-    .then((response) => response.text())
-    .then((responseData) => rssParser.parse(responseData))
-    .then((rss) => {
-      console.log('rss', rss);
-      console.log(rss.title);
-      console.log(rss.items.length);
-      dispatch({
-        type: 'UPDATE_ENTRIES',
-        payload: rss.items
-      });
-    });
-}
 
 class HomeScreen extends React.Component {
   renderItem = (item) => {
@@ -36,7 +26,6 @@ class HomeScreen extends React.Component {
       style={styles.button}
       onPress={() => {
         console.log('retrieving');
-        //retrieve(item.rss);
         this.props.navigation.navigate('Entries', {
             rss: item.rss,
           })
@@ -45,7 +34,6 @@ class HomeScreen extends React.Component {
       <Text>{item.title}</Text>
     </TouchableOpacity>)
   };
-
 
   render() {
     return (
@@ -61,10 +49,6 @@ class HomeScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
-  },
   button: {
     alignItems: "center",
     backgroundColor: "#DDDDDD",
