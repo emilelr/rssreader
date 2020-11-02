@@ -34,26 +34,30 @@ function retrieve(link) {
     });
 }
 
-const renderItem = ({ item }) => (
-  <TouchableOpacity
-    style={styles.button}
-    onPress={() => {
-      console.log('retrieving');
-      retrieve(item.rss);
-      navigation.navigate('Entries')
-    }}
-    >
-    <Text>{item.title}</Text>
-  </TouchableOpacity>
-);
-
 class HomeScreen extends React.Component {
+  renderItem = (item) => {
+    return (
+    <TouchableOpacity
+      style={styles.button}
+      onPress={() => {
+        console.log('retrieving');
+        //retrieve(item.rss);
+        this.props.navigation.navigate('Entries', {
+            rss: item.rss,
+          })
+      }}
+      >
+      <Text>{item.title}</Text>
+    </TouchableOpacity>)
+  };
+
+
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <FlatList
           data={DATA}
-          renderItem={renderItem}
+          renderItem={({item}) => this.renderItem(item)}
           keyExtractor={item => item.id}
         />
       </View>
