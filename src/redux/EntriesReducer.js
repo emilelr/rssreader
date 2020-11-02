@@ -1,7 +1,14 @@
 import {combineReducers} from 'redux';
 
 const INITIAL_STATE = {
-  entries: [],
+  entries: [
+    {
+      test: '1',
+    },
+    {
+      test: '2',
+    },
+  ],
 };
 
 const entriesReducer = (state = INITIAL_STATE, action) => {

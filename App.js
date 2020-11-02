@@ -22,26 +22,6 @@ const DATA = [
   }
 ];
 
-/*
-const Item = ({ title, onPress }) => (
-
-);
-*/
-
-/*
-function EntriesScreen({ navigation }) {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Entries Screen</Text>
-      <Button
-        title="Go to Details... again"
-        onPress={() => navigation.navigate('Entries')}
-      />
-    </View>
-  );
-}
-*/
-
 function HomeScreen({ navigation }) {
 
   const renderItem = ({ item }) => (
