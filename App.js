@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text, FlatList, StyleSheet, StatusBar } from 'react-native';
+import { View, Text, FlatList, StyleSheet, StatusBar, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -16,25 +16,27 @@ const DATA = [
   }
 ];
 
-const Item = ({ title }) => (
-  <View style={styles.item}>
-    <Text style={styles.title}>{title}</Text>
-  </View>
+/*
+const Item = ({ title, onPress }) => (
+
 );
+*/
 
 function HomeScreen() {
 
   const renderItem = ({ item }) => (
-      <Item title={item.title} />
-    );
+    <TouchableOpacity style={styles.button} >
+      <Text>{item.title}</Text>
+    </TouchableOpacity>
+  );
 
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-    <FlatList
-      data={DATA}
-      renderItem={renderItem}
-      keyExtractor={item => item.id}
-    />
+      <FlatList
+        data={DATA}
+        renderItem={renderItem}
+        keyExtractor={item => item.id}
+      />
     </View>
   );
 }
@@ -43,6 +45,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: StatusBar.currentHeight || 0,
+  },
+  button: {
+    alignItems: "center",
+    backgroundColor: "#DDDDDD",
+    padding: 10
   },
   item: {
     backgroundColor: '#f9c2ff',
