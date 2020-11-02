@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text, FlatList, StyleSheet, StatusBar, TouchableOpacity } from 'react-native';
+import { View, Text, FlatList, StyleSheet, StatusBar, TouchableOpacity, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -22,12 +22,24 @@ const Item = ({ title, onPress }) => (
 );
 */
 
-function HomeScreen() {
+function EntriesScreen({ navigation }) {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Entries Screen</Text>
+      <Button
+        title="Go to Details... again"
+        onPress={() => navigation.navigate('Entries')}
+      />
+    </View>
+  );
+}
+
+function HomeScreen({ navigation }) {
 
   const renderItem = ({ item }) => (
     <TouchableOpacity
       style={styles.button}
-      onPress={() => { console.log('hello world'); }}
+      onPress={() => { navigation.navigate('Entries') }}
       >
       <Text>{item.title}</Text>
     </TouchableOpacity>
@@ -72,6 +84,7 @@ function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Entries" component={EntriesScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
