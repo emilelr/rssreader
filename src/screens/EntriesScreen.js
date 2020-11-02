@@ -59,8 +59,6 @@ class EntriesScreen extends React.Component {
           renderItem={({item}) => this.renderItem(item)}
           keyExtractor={item => item.id}
         />
-
-
       </View>
     );
   }
