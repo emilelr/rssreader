@@ -7,13 +7,11 @@ class WebviewScreen extends React.Component {
     const params = this.props.route.params;
     console.log('params', params);
     return (
-      <View style={{flex: 1 }}>
         <WebView
           source={{ uri: params.link }}
           style={{ flex: 1 }}
           useWebKit
         />
-      </View>
     );
   }
 }

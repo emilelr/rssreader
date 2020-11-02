@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {View, Text, Button, FlatList, TouchableOpacity} from 'react-native';
+import {View, Text, Button, FlatList, TouchableOpacity, Alert} from 'react-native';
 import * as rssParser from 'react-native-rss-parser';
 
 class EntriesScreen extends React.Component {
@@ -16,16 +16,15 @@ class EntriesScreen extends React.Component {
       <TouchableOpacity style={{ marginTop: 16, marginBottom: 16 }}
         onPress={() => {
           console.log('item', item);
-          const link = item.links[0].url;
-          this.props.navigation.navigate('Webview', {
-            link,
-          })
-          //retrieve(item.rss);
-          //this.props.navigation.navigate('Entries', {
-          //    rss: item.rss,
-          //  })
-        }}
-        >
+          if (item.links && item.links.length > 0 && item.links[0].url) {
+            const link = item.links[0].url;
+            this.props.navigation.navigate('Webview', {
+              link,
+            })
+          } else {
+            Alert.alert('Error', 'No links');
+          }
+        }}>
         <Text style={{ fontSize: 20 }}>{item.title}</Text>
         <Text style={{ fontSize: 14 }}>{item.description}</Text>
         <Text style={{ fontSize: 20 }}>{item.published}</Text>
